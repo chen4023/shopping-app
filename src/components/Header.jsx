@@ -3,6 +3,7 @@ import styled from "styled-components";
 import logo from '../assets/logo.png';
 import { RxHamburgerMenu } from "react-icons/rx";
 import Dropdown from './Dropdown';
+import { Link } from 'react-router-dom';
 
 const HeaderContainer = styled.header`
     height: 80px;
@@ -17,9 +18,16 @@ const HeaderContainer = styled.header`
 const LogoWrapper = styled.div`
     display: flex;
     align-items: center;
-    margin-left: 76px;
+`;
 
-    & img {
+
+const StyeldLink = styled(Link)`
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  margin-left: 76px;
+
+      & img {
       width: 55px;
       height: 30px;
       margin-right: 10px;
@@ -31,7 +39,7 @@ const LogoWrapper = styled.div`
       font-size: 32px;
       text-decoration: none;
     }
-`;
+`
 
 const IconWrapper = styled.span`
   font-size: 2.2rem;
@@ -49,8 +57,10 @@ export default function Header() {
         <div>
             <HeaderContainer>
               <LogoWrapper>
-                <img src={logo} alt="logo"/>
-                <p>COZ Shopping</p>
+                <StyeldLink to='/'>
+                  <img src={logo} alt="logo"/>
+                  <p>COZ Shopping</p>
+                </StyeldLink>
               </LogoWrapper>
               <IconWrapper onClick={() => setView(!view)}>
                 <RxHamburgerMenu/>
